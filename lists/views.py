@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404, get_list_or_404
+from django.core.cache import cache
 
 from rest_framework import status
 from rest_framework.views import APIView
@@ -10,11 +11,20 @@ from lists.serializers import TodoListSerializer, ItemSerializer
 class TodoList(APIView):
     """
     List all, or create a new one.
+    API View that returns results from the cache when possible.
     """
     def get(self, request, format=None):
-		todo_list = get_list_or_404(List)
-		serializer = TodoListSerializer(todo_list, many=True, context={'request':request})
-		return Response(serializer.data)
+        # get cache if exists and return
+		todo_data = cache.get('todo_data')
+		# if cache not exists
+		if todo_data is None:
+            # Podemos realizar filtos no resultado
+            todo_list = get_list_or_404(List)
+            serializer = TodoListSerializer(todo_list, many=True, context={'request':request})
+            todo_data = serializer.data
+            # set cache with data and expiry time
+            cache.set('todo_data', todo_data, 12*60)
+		return Response(todo_data)
 
     def post(self, request, format=None):
         serializer = TodoListSerializer(data=request.data, context={'request':request})
@@ -27,14 +37,22 @@ class TodoList(APIView):
 class ListDetail(APIView):
     """
     Retrieve, update or delete a instance.
+    API View that returns results from the cache when possible.
     """
     def get_object(self, pk):
         return get_object_or_404(List, pk=pk)
 
     def get(self, request, pk, format=None):
-		todo_list = self.get_object(pk)
-		serializer = TodoListSerializer(todo_list, context={'request':request})
-		return Response(serializer.data)
+        # get cache if exists and return
+		todo_data = cache.get('todo_data')
+		# if cache not exists
+		if todo_data is None:
+			todo_list = self.get_object(pk)
+			serializer = TodoListSerializer(todo_list, context={'request':request})
+			todo_data = serializer.data
+			# set cache with data and expiry time
+			cache.set('todo_data', todo_data, 12*60)
+		return Response(todo_data)
 
     def put(self, request, pk, format=None):
         todo_list = self.get_object(pk)
