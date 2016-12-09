@@ -1,0 +1,38 @@
+{
+  "name": "todo_46g",
+  "version": "0.0.1",
+  "description": "To-do List, simple and clean.",
+  "main": "index.js",
+  "dependencies": {
+    "react-dom": "~15.4.1",
+    "react": "~15.4.1",
+    "react-bootstrap": "~0.30.7",
+    "dev": "~0.1.3"
+  },
+  "devDependencies": {
+    "jquery": "~3.1.1",
+    "webpack-bundle-tracker": "~0.1.0",
+    "babel-loader": "~6.2.8",
+    "react": "~15.4.1",
+    "react-dom": "~15.4.1",
+    "webpack": "~1.13.3",
+    "babel-core": "~6.18.2",
+    "babel-preset-react": "~6.16.0",
+    "babel-preset-es2015": "~6.18.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/2bec/django-todo_46g.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/2bec/django-todo_46g/issues"
+  }
+}
