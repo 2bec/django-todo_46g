@@ -9,15 +9,14 @@
 - Webpack Loader
 - Django Storages
 
-# Desenvolvimento
-Por ter pouco, ou nenhum conhecimento, de: Redis, AWS, React e Zappa, resolvi focar em ter uma aplicação funcional, utilizando os requerimentos mencionados.
-Tive algumas dificuldades, mas buscando orientação na documentação oficial foi fácil resolver. Pesquisei bastante sobre redis, aws, react, zappa e djangorestframework.
-Não utilizei o exemplo pronto do react pois acredito que desenvolvendo todos os passos dos tutoriais iniciais consigo aprender melhor e mais rápido.
-
-
 ## Fix warnings and exceptions
 Utilizando python 2.7 precisei instalar urllib3 com argumento extra ``` pip install urllib3[secure] ``` e atualizar curl
 ``` pip install --upgrade curl ```.
+
+# Desenvolvimento
+Por ter pouco, ou nenhum conhecimento, de: Redis, AWS, React e Zappa, resolvi focar em ter uma aplicação funcional, utilizando os requerimentos mencionados. Tive algumas dificuldades, mas buscando orientação na documentação oficial foi fácil resolver.
+
+Criei os modelos, os serializers e as views com os métodos get, post, put e delete.
 
 ## Redis
 Segui orientações da [documentação 1](https://niwinz.github.io/django-redis/latest/#_configure_as_cache_backend) e [documentação 2](https://niwinz.github.io/django-redis/latest/#_configure_as_session_backend). Alterar ``` LOCATION ``` para seu redis-server e porta.
@@ -73,3 +72,5 @@ Segui orientações da [documentação](https://github.com/Miserlou/Zappa#runnin
     }
 }
 ```
+# Conclusão
+Fiquei satisfeito com a evolução durante o desenvolvimento do teste. Foi válido tanto para mostrar minhas habilidades técnicas como de aprendizado. Considero que melhorei minhas habilidades utilizando djangorestframework, aprendi mais sobre HyperlinkedModelSerializer e nested relationships. E pesquisei bastante sobre redis, aws, react, zappa. Não utilizei o exemplo pronto do react pois gostaria de aprender melhor sobre o funcionamento do React também.
