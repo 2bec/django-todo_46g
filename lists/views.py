@@ -15,16 +15,16 @@ class TodoList(APIView):
     """
     def get(self, request, format=None):
         # get cache if exists and return
-		todo_data = cache.get('todo_data')
-		# if cache not exists
-		if todo_data is None:
+        todo_data = cache.get('todo_data')
+        # if cache not exists
+        if todo_data is None:
             # Podemos realizar filtos no resultado
             todo_list = get_list_or_404(List)
             serializer = TodoListSerializer(todo_list, many=True, context={'request':request})
             todo_data = serializer.data
             # set cache with data and expiry time
             cache.set('todo_data', todo_data, 12*60)
-		return Response(todo_data)
+        return Response(todo_data)
 
     def post(self, request, format=None):
         serializer = TodoListSerializer(data=request.data, context={'request':request})
