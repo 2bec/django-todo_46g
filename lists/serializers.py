@@ -19,7 +19,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 class ItemSerializer(serializers.HyperlinkedModelSerializer):
 
-    pk = serializers.IntegerField()
+    pk = serializers.IntegerField(read_only=True)
 
     # use serializer to users
     # required false to permited anonymous users?
@@ -46,7 +46,7 @@ class ItemSerializer(serializers.HyperlinkedModelSerializer):
 
 class TodoListSerializer(serializers.HyperlinkedModelSerializer):
 
-    pk = serializers.IntegerField()
+    pk = serializers.IntegerField(read_only=True)
 
     # use serializer to taks
     tasks = ItemSerializer(many=True)
