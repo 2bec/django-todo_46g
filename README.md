@@ -20,6 +20,7 @@ Criei os modelos, os serializers e as views com os métodos get, post, put e del
 
 ## Redis
 Segui orientações da [documentação 1](https://niwinz.github.io/django-redis/latest/#_configure_as_cache_backend) e [documentação 2](https://niwinz.github.io/django-redis/latest/#_configure_as_session_backend). Alterar ``` LOCATION ``` para seu redis-server e porta.
+Mais informações sobre [cache em Django](https://docs.djangoproject.com/en/dev/topics/cache/).
 ```
 CACHES = {
     "default": {
